@@ -1,3 +1,5 @@
+package CodingTest;
+
 import java.util.Stack;
 
 /**
@@ -19,16 +21,19 @@ public class StackQueue {
     }
 
     void inQueue(int v) {
-        //TODO
+        firstStack.push(v);
     }
 
     int outQueue() {
-        //TODO
-        return 0;
+        if (!firstStack.empty()) {
+            while(!firstStack.empty()) {
+                secondStack.push(firstStack.pop());
+            }
+        }
+        return (int)secondStack.pop();
     }
 
     int size() {
-        //TODO
-        return 0;
+        return firstStack.size() + secondStack.size();
     }
 }
