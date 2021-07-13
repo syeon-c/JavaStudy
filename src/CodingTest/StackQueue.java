@@ -8,8 +8,8 @@ import java.util.Stack;
 
 public class StackQueue {
 
-    Stack firstStack;
-    Stack secondStack;
+    Stack<Integer> firstStack;
+    Stack<Integer> secondStack;
 
     public static void main(String[] args) {
         StackQueue stackQueue = new StackQueue();
@@ -30,7 +30,7 @@ public class StackQueue {
                 secondStack.push(firstStack.pop());
             }
         }
-        return (int)secondStack.pop();
+        return secondStack.pop();
     }
 
     int size() {

@@ -16,7 +16,6 @@ public class SortExam {
         for (int n : array) {
             System.out.print(n);
         }
-
     }
 
     public static void solution(int[] array) {
