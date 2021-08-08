@@ -26,13 +26,11 @@ public class DartGame {
         int answer = 0;
         Stack<Integer> stack = new Stack<>();
 
-        for (int i = 0; i < dartResult.length(); i++) {
-            // 해당 점수 이전의 값을 음수 처리
+        for(int i = 0; i < dartResult.length(); i++) {
             if(dartResult.charAt(i) == '#') {
                 int num = stack.pop();
                 stack.push(num * -1);
 
-            // 해당 점수와 이전 점수 2배 처리
             } else if(dartResult.charAt(i) == '*') {
                 int num1 = stack.pop();
                 int num2 = stack.pop();
@@ -61,9 +59,8 @@ public class DartGame {
                     stack.push(num);
                 }
             }
-
         }
-        for (int s:stack) {
+        for(int s : stack) {
             answer += s;
         }
         return answer;
