@@ -1,4 +1,4 @@
-package CodingTest;
+package CodingTest.Programmers.Level1;
 
 import java.util.Locale;
 
