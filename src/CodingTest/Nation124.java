@@ -34,4 +34,3 @@ public class Nation124 {
         return answer;
     }
 }
-4
