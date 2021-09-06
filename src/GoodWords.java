@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class GoodWords {
     public static void main(String[] args) {
+        String a = "AA";
+        String b = "BB";
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         sc.nextLine();
@@ -10,8 +12,6 @@ public class GoodWords {
 
         for(int i = 0; i < n; i++) {
             String word = sc.nextLine();
-            String a = "AA";
-            String b = "BB";
 
             while (true) {
                 if(!word.contains(a) && !word.contains(b)) break;

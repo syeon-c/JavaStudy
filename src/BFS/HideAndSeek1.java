@@ -22,7 +22,7 @@ public class HideAndSeek1 {
 
                 for(int next : new int[]{now + 1, now - 1, now * 2}) {
                     int x = next;
-                    if(x >= 1 && x <= 100001 && visited[x] == 0) {
+                    if(x >= 0 && x <= 100000 && visited[x] == 0) {
                         visited[x] = 1;
                         queue.offer(x);
                     }
