@@ -20,7 +20,7 @@ public class NM1_15649 {
                 visited[j] = true;
                 arr[i] = j + 1;
                 dfs(n, m , i + 1);
-                visited[i] = false;
+                visited[j] = false;
             }
         }
     }
