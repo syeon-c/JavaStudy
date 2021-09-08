@@ -1,11 +1,12 @@
 package BFS;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Emoticon_14226 {
+public class BOJ14226 {
+    // 행: 화면 있는 이모티콘 수, 열: 클립보 있는 이모티콘 수
+    static boolean visited[][] = new boolean[1001][1001];
     static class Emoticon {
         int count;
         int clipBoard;
@@ -20,38 +21,36 @@ public class Emoticon_14226 {
 
     public static void bfs(int goal) {
         Queue<Emoticon> queue = new LinkedList<>();
-        int[] visited = new int[10001];
-        Arrays.fill(visited, 0);
         queue.offer(new Emoticon(1, 0, 0));
+        visited[1][0] = true;
 
         while (!queue.isEmpty()) {
             int size = queue.size();
             for(int i = 0; i < size; i++) {
                 Emoticon em = queue.poll();
 
+
                 if(em.count == goal) {
                     System.out.println(em.time);
                     return;
                 }
 
-                int nextCount; int nextCB;
-                nextCount = em.count; nextCB = em.count;
-                if(nextCount >= 1 && nextCount <= 1000) {
-                    queue.offer(new Emoticon(nextCount, nextCB, em.time + 1));
+                // 1. 클립보드에 복사
+                queue.offer(new Emoticon(em.count, em.count, em.time + 1));
+
+                // 2. 복사한 이모티콘 붙여넣기
+                if(em.clipBoard != 0 && em.count + em.clipBoard <= goal && !visited[em.count + em.clipBoard][em.clipBoard]) {
+                    queue.offer(new Emoticon(em.count + em.clipBoard, em.clipBoard, em.time + 1));
+                    visited[em.count + em.clipBoard][em.clipBoard] = true;
                 }
 
-                nextCount = em.count + em.clipBoard; nextCB = em.clipBoard;
-                if(nextCount >= 1 && nextCount <= 1000 && visited[nextCount] == 0) {
-                    queue.offer(new Emoticon(nextCount, nextCB, em.time + 1));
-                }
-
-                nextCount = em.count - 1; nextCB = em.clipBoard;
-                if(nextCount >= 1 && nextCount <= 1000 && visited[nextCount] == 0) {
-                    queue.offer(new Emoticon(nextCount, nextCB, em.time + 1));
+                // 3. 이모티콘 -1 제거
+                if(em.count >= 1 && !visited[em.count - 1][em.clipBoard]) {
+                    queue.offer(new Emoticon(em.count - 1, em.clipBoard, em.time + 1));
+                    visited[em.count - 1][em.clipBoard] = true;
                 }
             }
         }
-        return;
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
