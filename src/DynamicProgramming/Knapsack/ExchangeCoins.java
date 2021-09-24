@@ -3,7 +3,7 @@ package DynamicProgramming.Knapsack;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class ExchagneCoins {
+public class ExchangeCoins {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
