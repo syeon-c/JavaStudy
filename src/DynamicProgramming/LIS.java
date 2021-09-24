@@ -7,17 +7,17 @@ package DynamicProgramming;
 
 public class LIS {
     public static void main(String[] args) {
-        int n = 8;
-        int[] array = {5, 3, 7, 8, 6, 2, 9, 4};
+        int n = 9;
+        int[] array = {2, 7, 5, 8, 6, 4, 7, 12, 3};
         System.out.println(solution(n, array));
 
     }
 
     public static int solution(int n, int[] arr) {
         int answer = 0;
+        // dy[i] : i번째 숫자를 마지막 항으로 하는 최대 증가 수열의 길이
         int[] dy = new int[n+1];
 
-        // 1번째 원소를 마지막 항으로 하는 최대 부분 증가수열
         dy[0] = 1;
 
         for(int i=1; i<arr.length; i++){
