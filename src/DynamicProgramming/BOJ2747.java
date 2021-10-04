@@ -18,5 +18,6 @@ public class BOJ2747 {
                 dp[i] = dp[i - 2] + dp[i - 1];
         }
         System.out.println(dp[n]);
+        br.close();
     }
 }
