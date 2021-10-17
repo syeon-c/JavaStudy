@@ -25,14 +25,22 @@ public class BOJ2579 {
             int input = Integer.parseInt(br.readLine());
             score[i] = input;
         }
+        br. close();
 
         int[] dp = new int[n + 1];
         dp[0] = 0;
         dp[1] = score[1];
-        dp[2] = score[1] + score[2];
-        for(int i = 3; i <= n; i++) {
-            dp[n] = Math.max(score[i] + dp[i - 2], score[i] + score[i - 1] + dp[i - 3]);
+
+        // n = 1) 인덱스 오류 방지 위한 범위 설정
+        if(n >= 2)
+            dp[2] = score[1] + score[2];
+
+        if(n >= 3) {
+            for(int i = 3; i <= n; i++) {
+                dp[i] = Math.max(score[i] + dp[i - 2], score[i] + score[i - 1] + dp[i - 3]);
+            }
         }
+
         System.out.println(dp[n]);
 
     }
