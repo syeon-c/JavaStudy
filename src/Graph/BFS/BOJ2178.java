@@ -9,19 +9,15 @@ import java.util.Queue;
 public class BOJ2178 {
     private static int[] dx = {-1, 0, 1, 0};
     private static int[] dy = {0, -1, 0, 1};
-    private static int n;
-    private static int m;
-    private static int[][] map;
-    private static boolean[][] visited;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] info = br.readLine().split(" ");
-        n = Integer.parseInt(info[0]);
-        m = Integer.parseInt(info[1]);
+        int n = Integer.parseInt(info[0]);
+        int m = Integer.parseInt(info[1]);
 
-        map = new int[n+1][m+1];
-        visited = new boolean[n+1][m+1];
+        int[][] map = new int[n+1][m+1];
+        boolean[][] visited = new boolean[n+1][m+1];
         for(int i = 1; i <= n; i++) {
             String input = br.readLine();
             for(int j = 1; j <= m; j++) {
