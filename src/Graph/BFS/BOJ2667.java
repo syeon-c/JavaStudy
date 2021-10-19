@@ -68,11 +68,12 @@ public class BOJ2667 {
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
                 if(map[i][j] == 1 && !visited[i][j]) {
-                    dfs(i, j, count);
+                    bfs(i, j, count);
                     count++;
                 }
             }
         }
+
         Arrays.sort(house);
 
         System.out.println(count);

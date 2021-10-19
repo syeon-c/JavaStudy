@@ -32,6 +32,7 @@ public class BOJ11724 {
             String[] input = br.readLine().split(" ");
             int a = Integer.parseInt(input[0]);
             int b = Integer.parseInt(input[1]);
+            // 무방향 그래프
             graph[a][b] = 1;
             graph[b][a] = 1;
         }
