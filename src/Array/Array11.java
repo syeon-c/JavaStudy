@@ -47,6 +47,7 @@ public class Array11 {
                 info[i][j+1] = Integer.parseInt(input[j]);
             }
         }
+        br.close();
         Solution(N, info);
     }
 }

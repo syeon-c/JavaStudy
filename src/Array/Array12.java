@@ -40,6 +40,7 @@ public class Array12 {
                 map[i][j] = Integer.parseInt(info[j - 1]);
             }
         }
+        br.close();
         Solution(N, M, map);
     }
 }
