@@ -19,9 +19,12 @@ public class BOJ1107 {
         int M = Integer.parseInt(br.readLine());
 
         boolean[] broken = new boolean[10];
-        String[] input = br.readLine().split(" ");
-        for(int i = 0; i < M; i++)
-            broken[Integer.parseInt(input[i])] = true;
+        if (M != 0) {
+            String[] input = br.readLine().split(" ");
+            for(int i = 0; i < M; i++)
+                broken[Integer.parseInt(input[i])] = true;
+        }
+        br.close();
 
         int result = Math.abs(N - 100); // 초기값 설정
         // 리모콘이 9를 제외하고 모두 고장났다면 999999를 눌러서 찾는 경우도 포함되어야 하므로 최대값을 999999으로 설정
@@ -29,15 +32,15 @@ public class BOJ1107 {
         for(int i = 0; i <= 999999; i++) {
             String str = String.valueOf(i);
             int len = str.length();
-            boolean isBreak = false;
+            boolean isBroken = false;
 
             for(int j = 0; j < len; j++) {
                 if(broken[str.charAt(j) - '0']) {
-                    isBreak = true;
+                    isBroken = true;
                     break;
                 }
             }
-            if(!isBreak) {
+            if(!isBroken) {
                 int min = Math.abs(N - i) + len;
                 result = Math.min(min, result);
             }
