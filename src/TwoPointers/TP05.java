@@ -24,12 +24,12 @@ public class TP05 {
             arr[i] = i + 1;
         }
         // TP04 참조
-        int lt = 0;
-        for(int rt = 0; rt < k; rt++) {
-            sum += arr[rt];
+        int lp = 0;
+        for(int rp = 0; rp < k; rp++) {
+            sum += arr[rp];
             if (sum == n) answer++;
             while (sum >= n) {
-                sum -= arr[lt++];
+                sum -= arr[lp++];
                 if (sum == n) answer++;
             }
         }
