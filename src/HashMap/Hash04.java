@@ -37,6 +37,7 @@ public class Hash04 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String S = br.readLine();
         String T = br.readLine();
+        br.close();
         Solution(S, T);
     }
 }
