@@ -25,6 +25,7 @@ public class HideAndSeek3 {
         while (!queue.isEmpty()) {
             Info now = queue.poll();
 
+
             if (now.pos == goal) {
                 return Math.min(answer, now.time);
             }
