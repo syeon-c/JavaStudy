@@ -11,16 +11,17 @@ public class BOJ1929 {
         int M = Integer.parseInt(input[0]);
         int N = Integer.parseInt(input[1]);
         br.close();
-        while (M <= N) {
-            boolean isPrime = true;
-            for(int i = 2; i < M; i++) {
-                if (M % i == 0) {
-                    isPrime = false;
-                    break;
-                }
+        boolean[] check = new boolean[N + 1];
+        check[0] = check[1] = true;
+        for(int i = 2; i < N; i++) {
+            if (check[i]) continue;
+            // i의 배수 모두 소수에서 제하기
+            for(int j = i + i; j <= N; j += i) {
+                check[j] = true;
             }
-            if (isPrime) System.out.println(M);
-            M++;
+        }
+        for(int i = M; i <= N; i++) {
+            if (!check[i]) System.out.println(i);
         }
     }
 }
