@@ -23,7 +23,7 @@ public class BOJ17087 {
         int[] pos = new int[N];
         for(int i = 0; i < N; i++)
             pos[i] = Math.abs(S - Integer.parseInt(info2[i]));
-
+        br.close();
         int answer = pos[0];
 
         for(int i = 1; i < N; i++)
