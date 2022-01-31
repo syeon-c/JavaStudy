@@ -16,6 +16,7 @@ public class BOJ11726 {
 
         if(n >= 3) {
             for(int i = 3; i <= n; i++)
+                // 두 칸씩 더하는 방법 * 한 가지 + 한 칸씩 더하는 방법 * 한 가지
                 dp[i] = (dp[i-2] + dp[i-1]) % 10007;
         }
         System.out.println(dp[n]);
