@@ -20,15 +20,18 @@ public class BOJ2193 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        long[] dp = new long[n + 2];
-        dp[1] = 1;
-        dp[2] = 1;
+        long[][] dp = new long[n + 2][2];
+        dp[1][1] = 1;
+        dp[2][0] = 1;
 
         if(n >= 3) {
-            for (int i = 3; i <= n; i++)
-                dp[i] = dp[i - 2] + dp[i - 1];
+            for (int i = 3; i <= n; i++) {
+                dp[i][0] = dp[i - 1][0] + dp[i - 1][1];
+                dp[i][1] = dp[i - 1][0];
+            }
         }
-
-        System.out.println(dp[n]);
+        long answer = 0;
+        for(long a : dp[n]) answer += a;
+        System.out.println(answer);
     }
 }
