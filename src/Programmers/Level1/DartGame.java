@@ -1,4 +1,4 @@
-package CodingTest.Programmers.Level1;
+package Programmers.Level1;
 
 import java.util.Stack;
 
