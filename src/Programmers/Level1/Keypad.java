@@ -1,4 +1,4 @@
-package CodingTest.Programmers.Level1;
+package Programmers.Level1;
 
 /**
  * 순서대로 누를 번호가 담긴 배열 numbers, 왼손잡이인지 오른손잡이인 지를 나타내는 문자열 hand가 매개변수로 주어질 때
