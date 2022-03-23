@@ -17,6 +17,7 @@ public class BOJ1918 {
         char[] input = br.readLine().toCharArray();
         Stack<Character> stack = new Stack<>();
         StringBuilder answer = new StringBuilder();
+
         for(char c : input) {
             if (Character.isAlphabetic(c)) {
                 answer.append(c);
@@ -35,7 +36,10 @@ public class BOJ1918 {
                 stack.pop();
             } else answer.append(c);
         }
+
         while (!stack.isEmpty()) answer.append(stack.pop());
         System.out.println(answer);
+
+        br.close();
     }
 }

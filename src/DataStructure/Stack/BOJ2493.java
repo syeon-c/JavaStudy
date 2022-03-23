@@ -3,6 +3,8 @@ package DataStructure.Stack;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Stack;
 
 public class BOJ2493 {
@@ -20,16 +22,13 @@ public class BOJ2493 {
     public static int solution(top now) {
         while (!stack.empty()) {
             top peek = stack.pop();
-            //  현재 탑보다 스택 맨 위 탑의 값이 더 크면
             if(peek.value > now.value) {
-                // 스택에 넣어주고, 꼭대기의 인덱스 반환
                 stack.push(peek);
                 stack.push(now);
                 return peek.index;
             }
         }
         stack.push(now);
-        // 더 높은 꼭대기 없을 경우 0 반환
         return 0;
     }
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -47,5 +46,6 @@ public class BOJ2493 {
             else System.out.print(answer[i] + " ");
         }
         br.close();
+        Map<Integer, Integer> count = new HashMap<>();
     }
 }
