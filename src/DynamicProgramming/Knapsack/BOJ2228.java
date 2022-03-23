@@ -3,7 +3,6 @@ package DynamicProgramming.Knapsack;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.StringTokenizer;
 
 /**
  * n번째 수가 구간 m에 포함되지 않은 경우 :
