@@ -1,6 +1,4 @@
-package CodingTest.Programmers.Level1;
-
-import java.util.Locale;
+package Programmers.Level1;
 
 public class CreateStrangeCharacters {
     public static void main(String[] args) {
