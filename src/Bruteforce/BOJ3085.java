@@ -1,5 +1,9 @@
 package Bruteforce;
 
+/**
+ * https://zzang9ha.tistory.com/203
+ */
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
