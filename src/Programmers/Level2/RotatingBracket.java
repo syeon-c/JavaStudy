@@ -1,8 +1,4 @@
-package CodingTest.Programmers.Level2;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
+package Programmers.Level2;
 
 public class RotatingBracket {
     public static void main(String[] args) {
