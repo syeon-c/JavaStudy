@@ -3,6 +3,7 @@ package Math;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class BOJ6588 {
     private static final int MAX = 1000000;
@@ -10,6 +11,7 @@ public class BOJ6588 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         // 소수인지 체크하는 배열 isPrime[] 생성 --> 에라토스테네스의 체
         boolean[] isPrime = new boolean [MAX+1];
+        Arrays.fill(isPrime, true);
         for(int i = 2; i <= MAX; i++)
             isPrime[i] = true;
         for(int i = 2; i <= MAX; i++) {
