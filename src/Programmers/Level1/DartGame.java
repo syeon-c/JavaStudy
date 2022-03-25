@@ -33,8 +33,11 @@ public class DartGame {
 
             } else if(dartResult.charAt(i) == '*') {
                 int num1 = stack.pop();
-                int num2 = stack.pop();
-                stack.push(num2 * 2);
+                int num2;
+                if (!stack.isEmpty()) {
+                    num2 = stack.pop();
+                    stack.push(num2 * 2);
+                }
                 stack.push(num1 * 2);
 
             } else if(dartResult.charAt(i) == 'S') {
