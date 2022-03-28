@@ -1,0 +1,27 @@
+package Programmers.Level2;
+
+public class NormalSquare {
+    private static long getGCD(long a, long b) {
+        if (a > b) {
+            long tmp = a;
+            a = b;
+            b = a;
+        }
+        long tmp = 0;
+        while (a > 0) {
+            tmp = b % a;
+            b = a;
+            a = tmp;
+        }
+        return b;
+    }
+
+    private static long solution(int w, int h) {
+        return (long)w * h - ((w + h) - getGCD(w, h));
+    }
+    public static void main(String[] args) {
+        int W = 8;
+        int H = 12;
+        System.out.println(solution(W, H));
+    }
+}
