@@ -1,74 +1,55 @@
 package Programmers.Level2;
 
-import java.util.ArrayList;
-import java.util.Stack;
-
 public class BracketTransformation {
+    private static boolean isCorrect(String balanced) {
+        int open = 0;
+        for (int i = 0; i < balanced.length(); i++) {
+            if (balanced.charAt(i) == '(') {
+                open++;
+            } else {
+                if (open == 0) return false;
+                open--;
+            }
+        }
+        return true;
+    }
+    private static String getCorrect(String balanced) {
+        // 1.
+        if (balanced.length() == 0) return balanced;
+        // 2.
+        int open = 0;
+        int close = 0;
+        // get u
+        for (char c : balanced.toCharArray()) {
+            if (c == '(') open++;
+            else close++;
+            if (open == close) break;
+        }
+        int uLen = open + close;
+        String u = balanced.substring(0, uLen);
+        String v = balanced.substring(uLen);
+        // 3.
+        if (isCorrect(u)) return u + getCorrect(v);
+        // 4.
+        else {
+            //   4-1. 빈 문자열에 첫 번째 문자로 '('를 붙입니다.
+            //   4-2. 문자열 v에 대해 1단계부터 재귀적으로 수행한 결과 문자열을 이어 붙입니다.
+            //   4-3. ')'를 다시 붙입니다.
+            String str = "(" + getCorrect(v) + ")";
+            //   4-4. u의 첫 번째와 마지막 문자를 제거하고, 나머지 문자열의 괄호 방향을 뒤집어서 뒤에 붙입니다.
+            for (int i = 1; i < uLen - 1; i++) {
+                if (u.charAt(i) == '(') {
+                    str += ")";
+                } else {
+                    str += "(";
+                }
+            }
+            //   4-5. 생성된 문자열을 반환합니다.
+            return str;
+        }
+    }
     private static String solution(String p) {
-        StringBuilder sb = new StringBuilder();
-        Stack<Character> isRight = new Stack<>();
-        ArrayList<Character> list = new ArrayList<>();
-        int index = 0;
-
-        if (p.length() == 0) return p;
-
-        int openCount = 0;
-        int closeCount = 0;
-
-        for(int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '(') openCount++;
-            if (p.charAt(i) == ')') closeCount++;
-            list.add(p.charAt(i));
-            isRight.add(p.charAt(i));
-
-            // 올바른 괄호 문자열 검사하기
-            if(isRight.size() >= 2) {
-                while(true) {
-                    if(isRight.get(isRight.size()-1)==')' && isRight.get(isRight.size()-2)=='(') {
-                        isRight.pop();
-                        isRight.pop();
-                    } else {
-                        break;
-                    }
-                    if(isRight.size()==0) {
-                        break;
-                    }
-                }
-            }
-
-            // 만약 '('의 개수와 ')' 개수가 동일하다면(균형잡힌 괄호 문자열)  -> 2번 과정
-            if (openCount == closeCount) {
-                index = i;
-                // 만약 p 문자열이 올바른 괄호 문자열이 아닐경우 4번과정
-                if(isRight.size()!=0) {
-                    //4-1
-                    sb.append('(');
-                    //4-2
-                    sb.append(solution(p.substring(index + 1)));
-                    //4-3
-                    sb.append(')');
-                    //4-4
-                    list.remove(list.size()-1);
-                    list.remove(0);
-                    for(int j = 0; j < list.size(); j++) {
-                        if(list.get(j)=='(') {
-                            list.set(j, ')');
-                        } else if(list.get(j)==')') {
-                            list.set(j, '(');
-                        }
-                    }
-                    //4-5
-                    for(char ch : list) { sb.append(ch); }
-                    return sb.toString();
-                }
-                break;
-            }
-        }
-        // 만약 p 문자열이 올바른 괄호 문자열인 경우 3-1 과정
-        for (char ch : list) {
-            sb.append(ch);
-        }
-        return sb.toString() + solution(p.substring(index + 1));
+        return getCorrect(p);
     }
     public static void main(String[] args) {
         String p = "()))((()";
