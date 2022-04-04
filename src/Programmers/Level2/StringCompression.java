@@ -33,15 +33,15 @@ public class StringCompression {
                     cnt = 1;
                 }
             }
-            compressed += pattern + last;
-            if (cnt > 1) compressed = cnt + compressed;
+            if (cnt > 1) compressed += cnt + pattern + last;
+            else compressed += pattern + last;
             answer = Math.min(answer, compressed.length());
         }
         return answer;
     }
 
     public static void main(String[] args) {
-        String s = "abcabcdede";
+        String s = "ababcdcdababcdcd";
         System.out.println(solution(s));
     }
 }
