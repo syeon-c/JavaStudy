@@ -3,8 +3,9 @@ package Programmers.Level2;
 public class TakeGroupPhoto {
     static String[] friends = {"A", "C", "F", "J", "M", "N", "R", "T"};
     static int answer = 0;
+
     private static void dfs(String names, boolean[] visit, String[] data) {
-        if (names.length() == 7) {
+        if (names.length() == 8) {
             if(conditionCheck(names, data)) answer++;
             return;
         }
@@ -36,11 +37,13 @@ public class TakeGroupPhoto {
     }
     private static int solution(int n, String[] data) {
         boolean[] visited = new boolean[8];
+        answer = 0;
+        dfs("", visited, data);
         return answer;
     }
     public static void main(String[] args) {
         int n = 2;
-        String[] data = {};
+        String[] data = {"M~C<2", "C~M>1"};
         System.out.println(solution(n, data));
     }
 }
