@@ -21,6 +21,31 @@ import java.util.List;
  */
 
 public class OpenChatRoom {
+    private static List<String> solution2(String[] record) {
+        List<String> answer = new ArrayList<>();
+        HashMap<String, String> userInfo = new HashMap<>();
+        HashMap<String, String> order = new HashMap<>();
+        order.put("Enter", "님이 들어왔습니다.");
+        order.put("Leave", "님이 나갔습니다.");
+
+        // 유저 정보 설정
+        for(String rec : record) {
+            String[] message = rec.split(" ");
+            if (message[0].equals("Enter") || message[0].equals("Change"))
+                userInfo.put(message[1], message[2]);
+        }
+
+        for(String r : record) {
+            String[] message = r.split(" ");
+            if (message[0].equals("Enter") || message[0].equals("Leave")) {
+                String tmp = "";
+                tmp += userInfo.get(message[1]);
+                tmp += order.get(message[0]);
+                answer.add(tmp);
+            }
+        }
+        return answer;
+    }
     private static List<String> solution(String[] record) {
         List<String> answer = new ArrayList<>();
         HashMap<String, String> idInfo = new HashMap<>();
@@ -50,7 +75,7 @@ public class OpenChatRoom {
     }
     public static void main(String[] args) {
         String[] record = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
-        for(String s : solution(record)) {
+        for(String s : solution2(record)) {
             System.out.println(s);
         }
     }
