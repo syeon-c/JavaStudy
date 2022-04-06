@@ -17,11 +17,18 @@ public class NormalSquare {
     }
 
     private static long solution(int w, int h) {
-        return (long)w * h - ((w + h) - getGCD(w, h));
+        long W = w;
+        long H = h;
+
+        if (w == h) return (W * H) - W;
+        else {
+            long gcd = getGCD(W, H);
+            return (W * H) - (W + H - gcd);
+        }
     }
     public static void main(String[] args) {
-        int W = 8;
-        int H = 12;
-        System.out.println(solution(W, H));
+        int w = 8;
+        int h = 12;
+        System.out.println(solution(w, h));
     }
 }
