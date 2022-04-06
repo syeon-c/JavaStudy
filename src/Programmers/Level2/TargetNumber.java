@@ -15,8 +15,8 @@ public class TargetNumber {
         return answer;
     }
     public static void main(String[] args) {
-        int[] num = {1, 1, 1, 1, 1};
-        int target = 3;
+        int[] num = {4, 1, 2, 1};
+        int target = 4;
         System.out.println(solution(num, target));
     }
 }
