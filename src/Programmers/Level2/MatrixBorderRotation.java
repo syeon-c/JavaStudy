@@ -38,6 +38,7 @@ public class MatrixBorderRotation {
     private static int[] solution(int rows, int columns, int[][] queries) {
         int[] answer = new int[queries.length];
         int value = 1;
+        // 초기 행렬 값 설정
         board = new int[rows][columns];
         for(int i = 0; i < rows; i++) {
             for(int j = 0; j < columns; j++) {
