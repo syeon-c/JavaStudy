@@ -3,7 +3,7 @@ package Programmers.Level2;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/**
+/** https://jisunshine.tistory.com/m/148
  *  모든 'P'점에 대해서 다음을 만족하면, true를 리턴한다.
  *
  *    - 1번 자리에 'P'가 오지 않고
