@@ -29,6 +29,7 @@ public class StringCompression {
                     compressed += pattern;
                     // 전에 압축 가능한 문자열이 있다면 압축
                     if (cnt > 1) compressed = cnt + compressed;
+                    // 다음 비교 문자열로 초기화
                     pattern = comparison;
                     cnt = 1;
                 }
